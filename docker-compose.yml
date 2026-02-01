@@ -23,6 +23,10 @@ services:
     # a password of your choosing to it before running `docker compose up`.
     environment:
       - POSTGRES_URL=jdbc:postgresql://db:5432/petclinic
+    develop:
+      watch:
+        - action: rebuild
+          path: .
     depends_on:
       db:
         condition: service_healthy
